@@ -16,12 +16,20 @@ app.get("/", function(req, res) {
 
 app.get("/tables", function(req, res) {
     res.sendFile(path.join(__dirname, "tables.html"));
-    return
-})
+});
+
+app.get("api/tables", function(req, res) {
+    return res.json(tables);
+});
+
+app.post("api/tables", function(req, res) {
+    tables.push(req.body);
+    return res.json(tables);
+});
 
 app.get("/reserve", function(req, res) {
     res.sendFile(path.join(__dirname, "reserve.html"));
-})
+});
 
 app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
