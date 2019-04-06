@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Tables</title>
+  </head>
+  <body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>View Tables</h1>
+            
+            <br>
+            <a href="/home.html" class="btn btn-danger btn-lg”"><span class="fa fa-eye"></span> Home</button></a>
+            <a href="/reserve.html" class="btn btn-danger btn-lg"><span class="fa fa-eye"></span> Reservations</button></a>
+            <button class= "btn btn-primary btn-lg"id = "tableView">View Tables</button>
+        </div>
+        <div class="card">
+    </div>
+    <script>
+$("tableView").on("click",function(){
+  
+$.get("/api/tables", function(data) {
+  for (var i = 0; i < data.length; i++) {
+    console.log(data[i]);
+    var listGroupItem = $("<li class='list-group-item'>");
+    listGroupItem.append($("<h2>").text("Name: " + data[i].name));
+    listGroupItem.append($("<h3>").text("Role: " + data[i].phone));
+    listGroupItem.append($("<h3>").text("Age: " + data[i].email));
+    listGroupItem.append($("<h3>").text("Force Points: " + data[i].id));
+    $("#table-section").append(listGroupItem);
+  }
+});
+})
+    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
