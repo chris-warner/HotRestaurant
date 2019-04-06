@@ -35,9 +35,9 @@ $.get("/api/tables", function(data) {
     console.log(data[i]);
     var listGroupItem = $("<li class='list-group-item'>");
     listGroupItem.append($("<h2>").text("Name: " + data[i].name));
-    listGroupItem.append($("<h3>").text("Role: " + data[i].phone));
-    listGroupItem.append($("<h3>").text("Age: " + data[i].email));
-    listGroupItem.append($("<h3>").text("Force Points: " + data[i].id));
+    listGroupItem.append($("<h3>").text("Phone: " + data[i].phone));
+    listGroupItem.append($("<h3>").text("Email: " + data[i].email));
+    listGroupItem.append($("<h3>").text("ID: " + data[i].id));
     $("#table-section").append(listGroupItem);
   }
 });
