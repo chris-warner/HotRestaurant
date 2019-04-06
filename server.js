@@ -7,7 +7,7 @@ var PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
 
-var tables = [{name: "Dan", phone_number: "2222222", email: "dan@gmail.com", unique_id: "1"}];
+var tables = [{name: "Dan", phone: "2222222", email: "dan@gmail.com", id: "1"}];
 var waitlist = [];
 
 app.get("/", function(req, res) {
@@ -19,13 +19,11 @@ app.get("/tables", function(req, res) {
 });
 
 app.get("/api/tables", function(req, res) {
-    console.lopg(res.json(tables));
     return res.json(tables);
 });
 
 app.post("/api/tables", function(req, res) {
     tables.push(req.body);
-    console.log(req.body);
     return res.json(tables);
 });
 
