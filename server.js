@@ -27,8 +27,8 @@ app.post("/api/tables", function(req, res) {
     return res.json(tables);
 });
 
-app.get("/reserve", function(req, res) {
-    res.sendFile(path.join(__dirname, "reserve.html"));
+app.get("/reserves", function(req, res) {
+    res.sendFile(path.join(__dirname, "reserves.html"));
 });
 
 app.listen(PORT, function() {
